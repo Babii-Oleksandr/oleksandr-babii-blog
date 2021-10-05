@@ -66,7 +66,7 @@ function blogGetPost(): array
             'name'        => 'Post 5',
             'url'         => 'Post-5',
             'description' => 'Post 5 Description',
-            'author'       => 'Іergiy Сhernenkov',
+            'author'       => 'Sergey Chernenkov',
             'date'         => '2021-06-10'
         ],
         6 => [
@@ -78,4 +78,50 @@ function blogGetPost(): array
             'date'         => '2021-06-14'
         ]
     ];
+}
+
+function blogGetCategoryPost(int $categoryId): array
+{
+    $categories = blogGetCategory();
+
+    if (!isset($categories[$categoryId])) {
+        throw new InvalidArgumentException("Category with ID $categoryId does not exist");
+    }
+
+    $postsForCategory = [];
+    $posts = blogGetPost();
+
+    foreach ($categories[$categoryId]['posts'] as $postId) {
+        if (!isset($posts[$postId])) {
+            throw new InvalidArgumentException("Post with ID $postId from category $categoryId does not exist");
+        }
+
+        $postsForCategory[] = $posts[$postId];
+    }
+
+    return $postsForCategory;
+}
+
+function blogGetCategoryByUrl(string $url): ?array
+{
+    $data = array_filter(
+        blogGetCategory(),
+        static function ($category) use ($url) {
+            return $category['url'] === $url;
+        }
+    );
+
+    return array_pop($data);
+}
+
+function blogGetPostByUrl(string $url): ?array
+{
+    $data = array_filter(
+        blogGetPost(),
+        static function ($product) use ($url) {
+            return $product['url'] === $url;
+        }
+    );
+
+    return array_pop($data);
 }

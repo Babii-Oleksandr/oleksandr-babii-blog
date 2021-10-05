@@ -40,10 +40,10 @@ require_once 'data.php';
 
     <main>
         <img src="post-placeholder.png" alt="post 1" width="300"/>
-        <h1>post 1</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi cumque dolore eos exercitationem, impedit laudantium minima minus molestias quaerat quam, quidem repellendus sit temporibus veniam veritatis.</p>
-        <span>Oleksandr Babii</span>
-        <span>2021-12-09</span>
+        <h1><?= $data['name'] ?></h1>
+        <p><?= $data['description'] ?></p>
+        <span><?= $data['author'] ?></span>
+        <span><?= $data['date'] ?></span>
     </main>
 
     <footer>
