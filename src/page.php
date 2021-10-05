@@ -1,5 +1,5 @@
 <?php
-require_once 'data.php';
+require_once '../src/data.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,13 +17,13 @@ require_once 'data.php';
             display: flex;
         }
 
-        .post-list .post {
+        .product-list .product {
             max-width: 30%;
         }
     </style>
 </head>
 <body>
-    <header>
+ <header>
         <a href="/" title="{DV.Campus} PHP Framework">
             <img src="logo.jpg" alt="{DV.Campus} Logo" width="200"/>
         </a>
@@ -37,30 +37,25 @@ require_once 'data.php';
             </ul>
         </nav>
     </header>
+<main>
+    <?php require_once "../src/pages/$page" ?>
+</main>
 
-    <main>
-        <img src="post-placeholder.png" alt="post 1" width="300"/>
-        <h1><?= $data['name'] ?></h1>
-        <p><?= $data['description'] ?></p>
-        <span><?= $data['author'] ?></span>
-        <span><?= $data['date'] ?></span>
-    </main>
-
-    <footer>
-        <nav>
-            <ul>
-                <li>
-                    <a href="/about-us">About Us</a>
-                </li>
-                <li>
-                    <a href="/terms-and-conditions">Terms & Conditions</a>
-                </li>
-                <li>
-                    <a href="/contact-us">Contact Us</a>
-                </li>
-            </ul>
-        </nav>
-        <p>© Default Value 2021. All Rights Reserved.</p>
-    </footer>
+<footer>
+    <nav>
+        <ul>
+            <li>
+                <a href="/about-us">About Us</a>
+            </li>
+            <li>
+                <a href="/terms-and-conditions">Terms & Conditions</a>
+            </li>
+            <li>
+                <a href="/contact-us">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+    <p>© Default Value 2021. All Rights Reserved.</p>
+</footer>
 </body>
 </html>
