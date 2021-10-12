@@ -118,10 +118,17 @@ function blogGetPostByUrl(string $url): ?array
 {
     $data = array_filter(
         blogGetPost(),
-        static function ($product) use ($url) {
-            return $product['url'] === $url;
+        static function ($post) use ($url) {
+            return $post['url'] === $url;
         }
     );
 
     return array_pop($data);
 }
+
+//function blogGetPosts() : ?array
+//{
+//    usort($array, function($a, $b){
+//        return ($a['price'] - $b['price']);
+//    });
+//}

@@ -1,4 +1,4 @@
-<!-- @TODO: Implement recently viewed products -->
+<!-- @TODO: Implement recently viewed posrs -->
     <section title="Recently Viewed posts">
         <h2>Recently Viewed Posts</h2>
         <div class="post-list">
