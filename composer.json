@@ -3,5 +3,8 @@
     "psr-4": {
       "DVCampus\\": "src/DVCampus/"
     }
+  },
+  "require": {
+    "php-di/php-di": "^6.3"
   }
 }
