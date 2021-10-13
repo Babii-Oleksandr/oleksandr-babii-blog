@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DVCampus\Framework\Http;
+namespace Oleksandrb\Framework\Http;
 
 class RequestDispatcher
 {
@@ -11,7 +11,7 @@ class RequestDispatcher
      */
     private array $routers;
 
-    private \DVCampus\Framework\Http\Request $request;
+    private \Oleksandrb\Framework\Http\Request $request;
 
     private \DI\Container $container;
 
@@ -22,12 +22,12 @@ class RequestDispatcher
      */
     public function __construct(
         array $routers,
-        \DVCampus\Framework\Http\Request $request,
+        \Oleksandrb\Framework\Http\Request $request,
         \DI\Container $container
     ) {
         foreach ($routers as $router) {
             if (!($router instanceof RouterInterface)) {
-                throw new \InvalidArgumentException('Routers must iplement ' .RouterInterface::class);
+                throw new \InvalidArgumentException('Routers must iplement ' . RouterInterface::class);
             }
         }
         $this->routers = $routers;
@@ -45,7 +45,7 @@ class RequestDispatcher
 
                 if (!($controller instanceof ControllerInterface)) {
                     throw new \InvalidArgumentException(
-                        "Controller $controller must iplement " . ControllerInterface::class
+                        "Controller $controller must implement " . ControllerInterface::class
                     );
                 }
 

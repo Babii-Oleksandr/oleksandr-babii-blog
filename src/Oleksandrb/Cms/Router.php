@@ -2,20 +2,19 @@
 
 declare(strict_types=1);
 
-namespace DVCampus\Cms;
+namespace Oleksandrb\Cms;
 
-use DVCampus\Cms\Controller\Page;
+use Oleksandrb\Cms\Controller\Page;
 
-class Router implements \DVCampus\Framework\Http\RouterInterface
+class Router implements \Oleksandrb\Framework\Http\RouterInterface
 {
-
-    private \DVCampus\Framework\Http\Request $request;
+    private \Oleksandrb\Framework\Http\Request $request;
 
     /**
-     * @param \DVCampus\Framework\Http\Request $request
+     * @param \Oleksandrb\Framework\Http\Request $request
      */
     public function __construct(
-        \DVCampus\Framework\Http\Request $request
+        \Oleksandrb\Framework\Http\Request $request
     ) {
         $this->request = $request;
     }

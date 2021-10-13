@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace DVCampus\Cms\Controller;
+namespace Oleksandrb\Cms\Controller;
 
-class Page implements \DVCampus\Framework\Http\ControllerInterface
+class Page implements \Oleksandrb\Framework\Http\ControllerInterface
 {
-    private \DVCampus\Framework\Http\Request $request;
+    private \Oleksandrb\Framework\Http\Request $request;
 
     /**
-     * @param \DVCampus\Framework\Http\Request $request
+     * @param \Oleksandrb\Framework\Http\Request $request
      */
     public function __construct(
-        \DVCampus\Framework\Http\Request $request
+        \Oleksandrb\Framework\Http\Request $request
     ) {
         $this->request = $request;
     }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DVCampus\Framework\Http;
+namespace Oleksandrb\Framework\Http;
 
 interface RouterInterface
 {

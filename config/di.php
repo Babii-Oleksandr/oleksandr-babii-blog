@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 return [
-    \DVCampus\Framework\Http\RequestDispatcher::class => DI\autowire()->constructorParameter(
+    \Oleksandrb\Framework\Http\RequestDispatcher::class => DI\autowire()->constructorParameter(
         'routers',
         [
-            \DI\get(\DVCampus\Cms\Router::class),
-            \DI\get(\DVCampus\Blog\Router::class),
-            \DI\get(\DVCampus\ContactUs\Router::class),
+            \DI\get(\Oleksandrb\Cms\Router::class),
+            \DI\get(\Oleksandrb\Blog\Router::class),
+            \DI\get(\Oleksandrb\ContactUs\Router::class),
         ]
     )
 ];

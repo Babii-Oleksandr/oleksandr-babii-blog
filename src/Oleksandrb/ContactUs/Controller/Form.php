@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace DVCampus\ContactUs\Controller;
+namespace Oleksandrb\ContactUs\Controller;
 
-use DVCampus\Framework\Http\ControllerInterface;
+use Oleksandrb\Framework\Http\ControllerInterface;
 
 class Form implements ControllerInterface
 {

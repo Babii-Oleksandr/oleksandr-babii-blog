@@ -1,8 +1,11 @@
 {
   "autoload": {
     "psr-4": {
-      "DVCampus\\": "src/DVCampus/"
+      "Oleksandrb\\": "src/Oleksandrb/"
     }
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.6"
   },
   "require": {
     "php-di/php-di": "^6.3"

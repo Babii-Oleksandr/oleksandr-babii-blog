@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace DVCampus\ContactUs;
+namespace Oleksandrb\ContactUs;
 
-use DVCampus\ContactUs\Controller\Form;
+use Oleksandrb\ContactUs\Controller\Form;
 
-class Router implements \DVCampus\Framework\Http\RouterInterface
+class Router implements \Oleksandrb\Framework\Http\RouterInterface
 {
     /**
      * @inheritDoc

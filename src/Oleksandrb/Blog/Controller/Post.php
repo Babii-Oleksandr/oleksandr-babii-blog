@@ -1,18 +1,18 @@
 <?php
 
-namespace DVCampus\Blog\Controller;
+namespace Oleksandrb\Blog\Controller;
 
-use DVCampus\Framework\Http\ControllerInterface;
+use Oleksandrb\Framework\Http\ControllerInterface;
 
 class Post implements ControllerInterface
 {
-    private \DVCampus\Framework\Http\Request $request;
+    private \Oleksandrb\Framework\Http\Request $request;
 
     /**
-     * @param \DVCampus\Framework\Http\Request $request
+     * @param \Oleksandrb\Framework\Http\Request $request
      */
     public function __construct(
-        \DVCampus\Framework\Http\Request $request
+        \Oleksandrb\Framework\Http\Request $request
     ) {
         $this->request = $request;
     }
@@ -20,7 +20,7 @@ class Post implements ControllerInterface
     public function execute(): string
     {
         $data = $this->request->getParameter('post');
-        $page = 'Post.php';
+        $page = 'post.php';
 
         ob_start();
         require_once "../src/page.php";

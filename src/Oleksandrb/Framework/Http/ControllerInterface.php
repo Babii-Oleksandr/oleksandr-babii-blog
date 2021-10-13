@@ -1,6 +1,6 @@
 <?php
 
-namespace DVCampus\Framework\Http;
+namespace Oleksandrb\Framework\Http;
 
 interface ControllerInterface
 {
