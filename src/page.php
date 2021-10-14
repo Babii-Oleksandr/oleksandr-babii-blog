@@ -37,6 +37,7 @@ require_once '../src/data.php';
             </ul>
         </nav>
     </header>
+
 <main>
     <?php require_once "../src/pages/$page" ?>
 </main>
