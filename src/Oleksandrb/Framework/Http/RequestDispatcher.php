@@ -13,35 +13,39 @@ class RequestDispatcher
 
     private \Oleksandrb\Framework\Http\Request $request;
 
-    private \DI\Container $container;
+    private \DI\FactoryInterface $factory;
 
     /**
      * @param array $routers
      * @param Request $request
-     * @param \DI\Container $container
+     * @param \DI\FactoryInterface $factory
      */
     public function __construct(
         array $routers,
         \Oleksandrb\Framework\Http\Request $request,
-        \DI\Container $container
+        \DI\FactoryInterface $factory
     ) {
         foreach ($routers as $router) {
             if (!($router instanceof RouterInterface)) {
-                throw new \InvalidArgumentException('Routers must iplement ' . RouterInterface::class);
+                throw new \InvalidArgumentException('Routers must implement ' . RouterInterface::class);
             }
         }
         $this->routers = $routers;
         $this->request = $request;
-        $this->container = $container;
+        $this->factory = $factory;
     }
 
-    public function dispatch()
+    /**
+     * @throws \DI\DependencyException
+     * @throws \DI\NotFoundException
+     */
+    public function dispatch(): void
     {
         $requestUrl = $this->request->getRequestUrl();
 
         foreach ($this->routers as $router) {
             if ($controllerClass = $router->match($requestUrl)) {
-                $controller = $this->container->get($controllerClass);
+                $controller = $this->factory->make($controllerClass);
 
                 if (!($controller instanceof ControllerInterface)) {
                     throw new \InvalidArgumentException(
@@ -49,16 +53,14 @@ class RequestDispatcher
                     );
                 }
 
-                $html = $controller->execute();
+                $response = $controller->execute();
             }
         }
 
-        if (!isset($html)) {
-            header("HTTP/1.0 404 Not Found");
-            exit(0);
+        if (!isset($response)) {
+            $response = $this->factory->make(NotFound::class);
         }
 
-        header('Content-Type: text/html; charset=utf-8');
-        echo $html;
+        $response->send();
     }
 }

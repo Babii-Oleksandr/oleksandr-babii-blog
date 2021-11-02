@@ -11,13 +11,23 @@ class Router implements \Oleksandrb\Framework\Http\RouterInterface
 {
     private \Oleksandrb\Framework\Http\Request $request;
 
+    private Model\Category\Repository $categoryRepository;
+
+    private Model\Post\Repository $postRepository;
+
     /**
      * @param \Oleksandrb\Framework\Http\Request $request
+     * @param Model\Category\Repository $categoryRepository
+     * @param Model\Post\Repository $postRepository
      */
     public function __construct(
-        \Oleksandrb\Framework\Http\Request $request
+        \Oleksandrb\Framework\Http\Request $request,
+        \Oleksandrb\Blog\Model\Category\Repository $categoryRepository,
+        \Oleksandrb\Blog\Model\Post\Repository $postRepository
     ) {
         $this->request = $request;
+        $this->categoryRepository = $categoryRepository;
+        $this->postRepository = $postRepository;
     }
 
     /**
@@ -25,17 +35,16 @@ class Router implements \Oleksandrb\Framework\Http\RouterInterface
      */
     public function match(string $requestUrl): string
     {
-        require_once '../src/data.php';
-
-        if ($data = blogGetCategoryByUrl($requestUrl)) {
-            $this->request->setParameter('category', $data);
+        if ($category = $this->categoryRepository->getByUrl($requestUrl)) {
+            $this->request->setParameter('category', $category);
             return Category::class;
         }
 
-        if ($data = blogGetPostByUrl($requestUrl)) {
-            $this->request->setParameter('post', $data);
+        if ($post = $this->postRepository->getByUrl($requestUrl)) {
+            $this->request->setParameter('post', $post);
             return Post::class;
         }
+
         return '';
     }
 }

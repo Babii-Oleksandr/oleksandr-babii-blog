@@ -27,8 +27,6 @@ class Router implements \Oleksandrb\Framework\Http\RouterInterface
         $cmsPage = [
             '',
             'test-page',
-            'test-page-2'
-
         ];
 
         if (in_array($requestUrl, $cmsPage)) {

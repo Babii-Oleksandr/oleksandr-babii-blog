@@ -3,27 +3,26 @@
 namespace Oleksandrb\Blog\Controller;
 
 use Oleksandrb\Framework\Http\ControllerInterface;
+use Oleksandrb\Framework\Http\Response\Raw;
 
 class Post implements ControllerInterface
 {
-    private \Oleksandrb\Framework\Http\Request $request;
+    private \Oleksandrb\Framework\View\PageResponse $pageResponse;
 
     /**
-     * @param \Oleksandrb\Framework\Http\Request $request
+     * @param \Oleksandrb\Framework\View\PageResponse $pageResponse
      */
     public function __construct(
-        \Oleksandrb\Framework\Http\Request $request
+        \Oleksandrb\Framework\View\PageResponse $pageResponse
     ) {
-        $this->request = $request;
+        $this->pageResponse = $pageResponse;
     }
 
-    public function execute(): string
+    /**
+     * @return Raw
+     */
+    public function execute(): Raw
     {
-        $data = $this->request->getParameter('post');
-        $page = 'post.php';
-
-        ob_start();
-        require_once "../src/page.php";
-        return ob_get_clean();
+        return $this->pageResponse->setBody(\Oleksandrb\Blog\Block\Post::class);
     }
 }

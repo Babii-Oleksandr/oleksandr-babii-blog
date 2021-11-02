@@ -1,5 +1,5 @@
 <?php
-require_once '../src/data.php';
+/** @var \Oleksandrb\Framework\View\Renderer $this */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +17,12 @@ require_once '../src/data.php';
             display: flex;
         }
 
-        .product-list .product {
+        .post-list .post {
             max-width: 30%;
+        }
+
+        .post {
+            display: grid;
         }
     </style>
 </head>
@@ -27,19 +31,13 @@ require_once '../src/data.php';
         <a href="/" title="{DV.Campus} PHP Framework">
             <img src="logo.jpg" alt="{DV.Campus} Logo" width="200"/>
         </a>
-        <nav>
-            <ul>
-                <?php foreach (blogGetCategory() as $category) : ?>
-                    <li>
-                        <a href="/<?= $category['url'] ?>"><?= $category['name'] ?></a>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </nav>
-    </header>
+         <nav>
+             <?= $this->render(\Oleksandrb\Blog\Block\CategoryList::class) ?>
+         </nav>
+ </header>
 
 <main>
-    <?php require_once "../src/pages/$page" ?>
+    <?= $this->render($this->getContent(), $this->getContentBlockTemplate()) ?>
 </main>
 
 <footer>
