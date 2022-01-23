@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Oleksandrb\Blog\Controller;
 
 use Oleksandrb\Framework\Http\ControllerInterface;
 use Oleksandrb\Framework\Http\Response\Raw;
 
-class Post implements ControllerInterface
+class Author implements ControllerInterface
 {
     private \Oleksandrb\Framework\View\PageResponse $pageResponse;
 
@@ -23,6 +25,6 @@ class Post implements ControllerInterface
      */
     public function execute(): Raw
     {
-        return $this->pageResponse->setBody(\Oleksandrb\Blog\Block\Post::class);
+        return $this->pageResponse->setBody(\Oleksandrb\Blog\Block\Author::class);
     }
 }

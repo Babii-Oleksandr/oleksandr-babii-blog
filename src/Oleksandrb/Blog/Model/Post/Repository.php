@@ -26,38 +26,38 @@ class Repository
                 ->setName('Post 1')
                 ->setUrl('post-1')
                 ->setDescription('Lorem ipsum dolor sit amet')
-                ->setAuthor('Oleksandr Babii')
-                ->setDate(2021-12-05),
+                ->setAuthorId(1)
+                ->setDate('2021.12.05'),
             2 => $this->makeEntity()->setPostId(2)
                 ->setName('Post 2')
                 ->setUrl('post-2')
                 ->setDescription('Lorem ipsum dolor sit amet')
-                ->setAuthor('Sergey Chernenkov')
-                ->setDate(2021-12-11),
+                ->setAuthorId(2)
+                ->setDate('2021.12.11'),
             3 => $this->makeEntity()->setPostId(3)
                 ->setName('Post 3')
                 ->setUrl('post-3')
                 ->setDescription('Lorem ipsum dolor sit amet')
-                ->setAuthor('Oleksandr Babii')
-                ->setDate(2021-12-25),
+                ->setAuthorId(3)
+                ->setDate('2021.12.25'),
             4 => $this->makeEntity()->setPostId(4)
                 ->setName('Post 4')
                 ->setUrl('post-4')
                 ->setDescription('Lorem ipsum dolor sit amet')
-                ->setAuthor('Vitaliy Kayun')
-                ->setDate(2021-12-19),
+                ->setAuthorId(4)
+                ->setDate('2021.12.19'),
             5 => $this->makeEntity()->setPostId(5)
                 ->setName('Post 5')
                 ->setUrl('post-5')
                 ->setDescription('Lorem ipsum dolor sit amet')
-                ->setAuthor('Sergey Chernenkov')
-                ->setDate(2021-12-17),
+                ->setAuthorId(5)
+                ->setDate('2021.12.17'),
             6 => $this->makeEntity()->setPostId(6)
                 ->setName('Post 6')
                 ->setUrl('post-6')
                 ->setDescription('Lorem ipsum dolor sit amet')
-                ->setAuthor('Vitaliy Kayun')
-                ->setDate(2021-12-13)
+                ->setAuthorId(6)
+                ->setDate('2021.12.13')
         ];
     }
 
@@ -79,13 +79,27 @@ class Repository
 
     /**
      * @param array $postIds
-     * @return Entity[]
+     * @return array
      */
-    public function getByIds(array $postIds)
+    public function getByIds(array $postIds): array
     {
         return array_intersect_key(
             $this->getList(),
             array_flip($postIds)
+        );
+    }
+
+    /**
+     * @param int $authorId
+     * @return array
+     */
+    public function getByAuthorId(int $authorId): array
+    {
+        return array_filter(
+            $this->getList(),
+            static function ($post) use ($authorId) {
+                return $post->getAuthorId() === $authorId;
+            }
         );
     }
 

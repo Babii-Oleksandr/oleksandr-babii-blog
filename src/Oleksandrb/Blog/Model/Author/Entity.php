@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Oleksandrb\Blog\Model\Category;
+namespace Oleksandrb\Blog\Model\Author;
 
 class Entity
 {
-    private int $categoryId;
+    private int $authorId;
 
     private string $name;
 
@@ -17,18 +17,18 @@ class Entity
     /**
      * @return int
      */
-    public function getCategoryId(): int
+    public function getAuthorId(): int
     {
-        return $this->categoryId;
+        return $this->authorId;
     }
 
     /**
-     * @param int $categoryId
+     * @param int $authorId
      * @return $this
      */
-    public function setCategoryId(int $categoryId): Entity
+    public function setAuthorId(int $authorId): Entity
     {
-        $this->categoryId = $categoryId;
+        $this->authorId = $authorId;
 
         return $this;
     }

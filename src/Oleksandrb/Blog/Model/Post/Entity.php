@@ -14,9 +14,9 @@ class Entity
 
     private string $description;
 
-    private string $author;
+    private int $authorId;
 
-    private float $date;
+    private string $date;
 
     /**
      * @return int
@@ -95,36 +95,37 @@ class Entity
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getAuthor(): string
+    public function getAuthorId(): int
     {
-        return $this->author;
+        return $this->authorId;
     }
 
     /**
-     * @param string $author
+     * @param int $authorId
      * @return $this
      */
-    public function setAuthor(string $author): Entity
+    public function setAuthorId(int $authorId): Entity
     {
-        $this->author = $author;
+        $this->authorId = $authorId;
+
         return $this;
     }
 
     /**
-     * @return float
+     * @return string
      */
-    public function getDate(): float
+    public function getDate(): string
     {
         return $this->date;
     }
 
     /**
-     * @param float $date
+     * @param string $date
      * @return $this
      */
-    public function setDate(float $date): Entity
+    public function setDate(string $date): Entity
     {
         $this->date = $date;
         return $this;

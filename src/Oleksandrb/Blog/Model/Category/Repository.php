@@ -26,17 +26,17 @@ class Repository
                 ->setCategoryId(1)
                 ->setName('Policy')
                 ->setUrl('policy')
-                ->setPostIds([1, 2, 3]),
+                ->setPostsIds([1, 2, 3]),
             2 => $this->makeEntity()
                 ->setCategoryId(1)
                 ->setName('Economy')
                 ->setUrl('economy')
-                ->setPostIds([3, 4, 5]),
+                ->setPostsIds([3, 4, 5]),
             3 => $this->makeEntity()
                 ->setCategoryId(1)
                 ->setName('Sport')
                 ->setUrl('sport')
-                ->setPostIds([2, 4, 6])
+                ->setPostsIds([2, 4, 6])
         ];
     }
 
@@ -46,14 +46,14 @@ class Repository
      */
     public function getByUrl(string $url): ?Entity
     {
-        $data = array_filter(
+        $categories = array_filter(
             $this->getList(),
             static function ($category) use ($url) {
                 return $category->getUrl() === $url;
             }
         );
 
-        return array_pop($data);
+        return array_pop($categories);
     }
 
     /**
