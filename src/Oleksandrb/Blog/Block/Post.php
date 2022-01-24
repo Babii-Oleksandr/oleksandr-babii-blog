@@ -11,6 +11,8 @@ class Post extends \Oleksandrb\Framework\View\Block
 {
     private \Oleksandrb\Framework\Http\Request $request;
 
+    private \Oleksandrb\Blog\Model\Author\Repository $authorRepository;
+
     protected string $template = '../src/Oleksandrb/Blog/view/post.php';
 
     /**

@@ -1,9 +1,8 @@
 <?php
-
-/** @var \Oleksandrb\Blog\Block\Author $block */
-
+/**
+ * @var \Oleksandrb\Blog\Block\Author $block
+ */
 $author = $block->getAuthor();
-
 ?>
 <div title="Author">
     <h1><?= $author->getName() ?></h1>

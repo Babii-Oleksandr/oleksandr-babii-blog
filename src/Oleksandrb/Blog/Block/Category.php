@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Oleksandrb\Blog\Block;
@@ -10,7 +11,9 @@ use Oleksandrb\Blog\Model\Author\Entity as AuthorEntity;
 class Category extends \Oleksandrb\Framework\View\Block
 {
     private \Oleksandrb\Framework\Http\Request $request;
+
     private \Oleksandrb\Blog\Model\Post\Repository $postRepository;
+
     private \Oleksandrb\Blog\Model\Author\Repository $authorRepository;
 
     protected string $template = '../src/Oleksandrb/Blog/view/category.php';

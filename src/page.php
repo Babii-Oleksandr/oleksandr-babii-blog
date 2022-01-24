@@ -1,5 +1,7 @@
 <?php
-/** @var \Oleksandrb\Framework\View\Renderer $this */
+/**
+ * @var \Oleksandrb\Framework\View\Renderer $this
+ */
 ?>
 <!DOCTYPE html>
 <html lang="en">

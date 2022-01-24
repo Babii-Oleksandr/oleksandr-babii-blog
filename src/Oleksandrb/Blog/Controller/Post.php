@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Oleksandrb\Blog\Controller;
 
 use Oleksandrb\Framework\Http\ControllerInterface;

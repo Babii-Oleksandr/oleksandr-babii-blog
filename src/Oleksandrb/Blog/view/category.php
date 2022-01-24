@@ -1,5 +1,7 @@
 <?php
-/** @var \Oleksandrb\Blog\Block\Category $block */
+/**
+ * @var \Oleksandrb\Blog\Block\Category $block
+ */
 ?>
 <div title="category-wrapper">
     <h1><?= $block->getCategory()->getName() ?></h1>

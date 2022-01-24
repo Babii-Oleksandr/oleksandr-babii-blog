@@ -12,7 +12,7 @@ class Entity
 
     private string $url;
 
-    private array $posts;
+    private array $postsIds;
 
     /**
      * @return int
@@ -76,16 +76,16 @@ class Entity
      */
     public function getPostsIds(): array
     {
-        return $this->posts;
+        return $this->postsIds;
     }
 
     /**
-     * @param array $posts
+     * @param array $postsIds
      * @return $this
      */
-    public function setPostsIds(array $posts): Entity
+    public function setPostsIds(array $postsIds): Entity
     {
-        $this->posts = $posts;
+        $this->postsIds = $postsIds;
 
         return $this;
     }

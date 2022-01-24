@@ -12,7 +12,7 @@ class Entity
 
     private string $url;
 
-    private string $description;
+    private string $content;
 
     private int $authorId;
 
@@ -78,18 +78,18 @@ class Entity
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getContent(): string
     {
-        return $this->description;
+        return $this->content;
     }
 
     /**
-     * @param string $description
+     * @param string $content
      * @return $this
      */
-    public function setDescription(string $description): Entity
+    public function setContent(string $content): Entity
     {
-        $this->description = $description;
+        $this->content = $content;
 
         return $this;
     }

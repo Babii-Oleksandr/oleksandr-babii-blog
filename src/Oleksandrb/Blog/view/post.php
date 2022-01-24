@@ -1,6 +1,7 @@
 <?php
-
-/** @var \Oleksandrb\Blog\Block\Post $block */
+/**
+ * @var \Oleksandrb\Blog\Block\Post $block
+ */
 $post = $block->getPost();
 $author = $block->getAuthor();
 ?>
@@ -12,6 +13,6 @@ $author = $block->getAuthor();
     <?php else : ?>
         <span>No name</span>
     <?php endif ?>
-    <p><?= $post->getDescription() ?></p>
+    <p><?= $post->getContent() ?></p>
     <span><?= $post->getDate()?></span>
 </div>
